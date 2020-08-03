@@ -1,0 +1,21 @@
+ <!-- About Section-->
+        <section class="page-section bg-primary text-white mb-0" id="about">
+            <div class="container">
+                <!-- About Section Heading-->
+                <div class="divider-custom divider-light">
+                </div>
+                <h2 class="page-section-heading text-center text-uppercase text-white">Gossip <%= params['id'] %></h2>
+                <!-- Icon Divider-->
+                <div class="divider-custom divider-light">
+                </div>
+                <!-- About Section Content-->
+                <div>
+                <p class="lead text-center"><%= Gossip.find(params['id']).content %></p>
+                </div>
+                <!-- About Section Button-->
+                <div class="text-center mt-4">
+                    <a <%= link_to (DynamicPagesController.username(params['id'])), user_info_path(Gossip.find(params['id']).user_id), :class =>"btn btn-xl btn-outline-light" %>
+                </div>
+            </div>
+        </section>
+</html>

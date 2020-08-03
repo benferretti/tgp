@@ -1,2 +1,39 @@
-<h1>StaticPages#home</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>
+
+        <!-- Masthead-->
+        <header class="masthead bg-primary text-white text-center">
+        <div class="container d-flex align-items-center flex-column">
+            <!-- Masthead Avatar Image-->
+            <!-- Masthead Heading-->
+            <h1 class="masthead-heading text-uppercase mb-0">Welcome to TGP</h1>
+            <div class="text-center mt-4">
+                    <a class="btn btn-xl btn-outline-light">
+                        Add a gossip !
+                    </a>
+                </div>
+            <div class="container d-flex align-items-center flex-column">
+            </div>
+        </header>
+    <body id="page-top">
+    <body>
+    <% Gossip.all.each do |gossip| %>
+        <p></p>
+        </div>
+            </div>
+            <div class="container">
+            <a> </a>
+                <div class="card text-center">
+                    <div class="card-header"> Gossip <%=gossip.id %><br/></div>
+                    <div class="card-body">
+                        <h5 class="card-title"><%= User.find(gossip.user_id).first_name + " " + User.find(gossip.user_id).last_name %></h5>
+                        <p class="card-text"><%= gossip.content %><br/></p>
+                        <a <%= link_to "Learn more", gossip_info_path(gossip.id), :class =>"btn btn-primary"%></a>
+                    </div>
+                </div>
+                <p></p>
+            </div>
+            </div>
+            <h1></h1>
+        </div>
+    <% end %>
+    </body>
+</html>

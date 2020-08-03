@@ -1,0 +1,44 @@
+      <!-- Masthead-->
+        <header class="masthead bg-primary text-white text-center">
+            <div class="container d-flex align-items-center flex-column">
+                <!-- Masthead Avatar Image-->
+                <img class="masthead-avatar mb-5" src="assets/images/avataaars.svg" alt="" />
+                <!-- Masthead Heading-->
+                <h1 class="masthead-heading text-uppercase mb-0"><%= User.find(params['id']).first_name + " " + User.find(params['id']).last_name %></h1>
+                <!-- Icon Divider-->
+                <div class="divider-custom divider-light">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <!-- Masthead Subheading-->
+                <p class="masthead-subheading font-weight-light mb-0"><%= Gossip.all.count {|gossip| gossip.user_id == params['id'].to_i} %> gossips posted</p>
+                <p class="masthead-subheading font-weight-light mb-0"><%= User.find(params['id']).age %> years old</p>
+                <p class="masthead-subheading font-weight-light mb-0"><%= City.find(User.find(params['id']).city_id).name %></p>            
+                </div>
+        </header>
+    </body>
+    <% Gossip.all.each do |gossip| %>
+        <% if gossip.user_id == params['id'].to_i %>
+            <p></p>
+            </div>
+                </div>
+                <div class="container">
+                <a> </a>
+                    <div class="card text-center">
+                        <div class="card-header"> Gossip <%=gossip.id %><br/></div>
+                        <div class="card-body">
+                            <h5 class="card-title"><%= User.find(gossip.user_id).first_name + " " + User.find(gossip.user_id).last_name %></h5>
+                            <p class="card-text"><%= gossip.content %><br/></p>
+                            <a <%= link_to "Learn more", gossip_info_path(gossip.id), :class =>"btn btn-primary"%></a>
+                        </div>
+                    </div>
+                    <p></p>
+                </div>
+                </div>
+                <h1></h1>
+            </div>
+        <% end %>
+    <% end %>
+    </body>
+</html>
