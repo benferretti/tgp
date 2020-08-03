@@ -23,14 +23,14 @@
             <a> </a>
                 <div class="card text-center">
                     <div class="card-header"> Gossip <%=gossip.id %><br/></div>
-                    <div class="card-body">
-                        <h5 class="card-title"><%= User.find(gossip.user_id).first_name + " " + User.find(gossip.user_id).last_name %></h5>
-                        <p class="card-text"><%= gossip.content %><br/></p>
-                        <a <%= link_to "Learn more", gossip_info_path(gossip.id), :class =>"btn btn-primary"%></a>
+                        <div class="card-body">
+                            <h5 class="card-title"><%= User.find(gossip.user_id).first_name + " " + User.find(gossip.user_id).last_name %></h5>
+                            <p class="card-text"><%= gossip.content %><br/></p>
+                            <a <%= link_to "Learn more", gossip_info_path(gossip.id), :class =>"btn btn-primary"%></a>
+                        </div>
                     </div>
-                </div>
                 <p></p>
-            </div>
+                </div>
             </div>
             <h1></h1>
         </div>
